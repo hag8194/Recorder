@@ -12,7 +12,6 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
     }
 
     buildTypes {
@@ -61,6 +60,9 @@ dependencies {
     annotationProcessor commonDependencies.dagger2Compiler
     testAnnotationProcessor commonDependencies.dagger2Compiler
     compileOnly commonDependencies.javaxAnnotation
+    implementation commonDependencies.daggerAndroid
+    implementation commonDependencies.daggerAndroidSupport
+    annotationProcessor commonDependencies.daggerAndroidProcessor
 
     // RxJava 2
     api commonDependencies.rxJava2

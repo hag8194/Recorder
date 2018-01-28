@@ -1,13 +1,18 @@
 package com.example.recorder;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
-public class SplashScreenActivity extends AppCompatActivity {
+import com.example.base.presentation.DaggerActivity;
+
+public class SplashScreenActivity extends DaggerActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash_screen);
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_splash_screen;
     }
 }

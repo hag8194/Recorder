@@ -8,11 +8,11 @@ allprojects {
 
 ext {
     // Libraries
-    rxJava2 = '2.1.0'
+    rxJava2 = '2.1.8'
     rxAndroid = '2.0.1'
-    architectureComponents = '1.0.0'
+    architectureComponents = '1.1.0'
     room = '1.0.0'
-    supportLibrary = '27.0.2'
+    supportLibrary = '26.1.0'
     constraintLayout = '1.0.2'
     dagger2 = '2.11'
     javaxAnnotation = '10.0-b28'
@@ -42,6 +42,10 @@ ext {
 
             dagger2Compiler                 : "com.google.dagger:dagger-compiler:${dagger2}",
             dagger2                         : "com.google.dagger:dagger:${dagger2}",
+            daggerAndroid                   : "com.google.dagger:dagger-android:${dagger2}",
+            daggerAndroidSupport            : "com.google.dagger:dagger-android-support:${dagger2}",
+            daggerAndroidProcessor          : "com.google.dagger:dagger-android-processor:${dagger2}",
+
             javaxAnnotation                 : "org.glassfish:javax.annotation:${javaxAnnotation}",
 
             supportAppCompatV7              : "com.android.support:appcompat-v7:${supportLibrary}",
