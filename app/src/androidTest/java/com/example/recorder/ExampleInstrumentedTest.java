@@ -1,4 +1,4 @@
-package com.example.hugo.recorder;
+package com.example.recorder;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.hugo.recorder", appContext.getPackageName());
+        assertEquals("com.example.recorder", appContext.getPackageName());
     }
 }

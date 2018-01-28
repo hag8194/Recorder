@@ -1,4 +1,4 @@
-package com.example.hugo.recorder;
+package com.example.record;
 
 import org.junit.Test;
 
