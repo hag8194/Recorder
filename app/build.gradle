@@ -1,9 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
+    def androidVersions = rootProject.ext.android
+
+    compileSdkVersion androidVersions.compileSdkVersion
+
     defaultConfig {
-        applicationId "com.example.hugo.recorder"
+        applicationId "com.example.recorder"
         minSdkVersion 21
         targetSdkVersion 26
         versionCode 1
@@ -16,43 +19,59 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    def commonDependencies = rootProject.ext.commonDependencies
+    def developmentDependencies = rootProject.ext.developmentDependencies
+    def commonTestDependencies = rootProject.ext.commonTestDependencies
+
+    implementation project(':base')
+    implementation project(':record')
 
     //Support
-    implementation 'com.android.support:appcompat-v7:26.1.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation commonDependencies.supportAppCompatV7
+    implementation commonDependencies.constraintLayout
 
     //Guava
-    implementation "com.google.guava:guava:21.0"
+    //implementation "com.google.guava:guava:21.0"
 
     //LiveData, ViewModel
-    implementation "android.arch.lifecycle:extensions:1.1.0"
-    annotationProcessor "android.arch.lifecycle:compiler:1.1.0"
+    implementation commonDependencies.architectureComponentsExtensions
+    annotationProcessor commonDependencies.architectureComponentsCompiler
+    testImplementation commonTestDependencies.architectureComponentsTesting
 
     //Room
-    implementation "android.arch.persistence.room:runtime:1.0.0"
-    annotationProcessor "android.arch.persistence.room:compiler:1.0.0"
+    implementation commonDependencies.roomRuntime
+    annotationProcessor commonDependencies.roomCompiler
+    testImplementation commonDependencies.roomTesting
 
-    // Dagger dependencies
-    annotationProcessor "com.google.dagger:dagger-compiler:2.11"
-    implementation "com.google.dagger:dagger:2.11"
-    implementation "com.google.dagger:dagger-android:2.11"
-    implementation "com.google.dagger:dagger-android-support:2.11"
-    annotationProcessor "com.google.dagger:dagger-android-processor:2.11"
+    // Dagger 2
+    implementation commonDependencies.dagger2
+    annotationProcessor commonDependencies.dagger2Compiler
+    testAnnotationProcessor commonDependencies.dagger2Compiler
+    compileOnly commonDependencies.javaxAnnotation
+    implementation commonDependencies.daggerAndroid
+    implementation commonDependencies.daggerAndroidSupport
+    annotationProcessor commonDependencies.daggerAndroidProcessor
 
-    //RxJava
-    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
-    implementation 'io.reactivex.rxjava2:rxjava:2.1.8'
+    // RxJava 2
+    implementation commonDependencies.rxJava2
+    implementation commonDependencies.rxAndroid
     //implementation "android.arch.persistence.room:rxjava2:1.1.0" // RxJava support for Room
     implementation "android.arch.lifecycle:reactivestreams:1.1.0"// ReactiveStreams support for LiveData
 
-    //Testing
-    testImplementation 'junit:junit:4.12'
+    // Unit testing
+    testImplementation commonTestDependencies.junit
+    testImplementation commonTestDependencies.assertj
+    testImplementation commonTestDependencies.mockito
+
+    //Instrumentation testing
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-    testImplementation "android.arch.core:core-testing:1.1.0"       //Test LiveData, ViewModel
-    testImplementation "android.arch.persistence.room:testing:1.0.0"//Test Room
 }
