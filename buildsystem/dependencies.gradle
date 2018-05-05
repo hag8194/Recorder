@@ -12,7 +12,7 @@ ext {
     rxAndroid = '2.0.1'
     architectureComponents = '1.1.0'
     room = '1.0.0'
-    supportLibrary = '26.1.0'
+    supportLibrary = '27.1.1'
     constraintLayout = '1.0.2'
     dagger2 = '2.11'
     javaxAnnotation = '10.0-b28'
