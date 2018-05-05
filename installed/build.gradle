@@ -1,0 +1,30 @@
+apply plugin: 'com.android.application'
+
+android {
+    def androidVersions = rootProject.ext.android
+
+    compileSdkVersion androidVersions.compileSdkVersion
+
+    defaultConfig {
+        applicationId "com.example.recorder"
+        minSdkVersion androidVersions.minSdkVersion
+        targetSdkVersion androidVersions.targetSdkVersion
+        versionCode androidVersions.versionCode
+        versionName androidVersions.versionName
+
+    }
+    buildTypes {
+        release {
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation project(':base')
+    implementation project(':playrecord')
+}
