@@ -1,1 +1,1 @@
-include ':app', ':record', ':base'
+include ':installed', ':base', ':playrecord', ':instant'
