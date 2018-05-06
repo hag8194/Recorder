@@ -1,4 +1,4 @@
-package com.example.recorder.base.presentation;
+package com.example.recorder.base.presentation.base;
 
 import android.content.Context;
 import android.os.Bundle;

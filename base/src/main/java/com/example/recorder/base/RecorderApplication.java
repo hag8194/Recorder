@@ -1,6 +1,9 @@
 package com.example.recorder.base;
 
 
+import com.example.recorder.base.injection.AppComponent;
+import com.example.recorder.base.injection.DaggerAppComponent;
+
 import dagger.android.AndroidInjector;
 import dagger.android.support.DaggerApplication;
 

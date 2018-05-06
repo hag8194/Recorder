@@ -1,7 +1,8 @@
-package com.example.recorder.base;
+package com.example.recorder.base.injection;
 
 import android.app.Application;
 
+import com.example.recorder.base.RecorderApplication;
 import com.example.recorder.base.injection.modules.ActivityBindingModule;
 
 import javax.inject.Singleton;

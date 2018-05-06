@@ -3,6 +3,7 @@ package com.example.recorder.base.presentation;
 import android.os.Bundle;
 
 import com.example.recorder.base.R;
+import com.example.recorder.base.presentation.base.DaggerActivity;
 
 public class SplashScreenActivity extends DaggerActivity {
 
