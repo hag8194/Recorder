@@ -9,9 +9,7 @@ import javax.inject.Singleton;
 
 import dagger.BindsInstance;
 import dagger.Component;
-import dagger.android.AndroidInjector;
 import dagger.android.support.AndroidSupportInjectionModule;
-import dagger.android.support.DaggerApplication;
 
 /**
  * This is a Dagger component. Refer to {@link RecorderApplication} for the list of Dagger components
@@ -26,11 +24,10 @@ import dagger.android.support.DaggerApplication;
  */
 
 @Singleton
-@Component(modules = {ActivityBindingModule.class, AndroidSupportInjectionModule.class})
-public interface AppComponent extends AndroidInjector<DaggerApplication> {
+@Component(modules = {ActivityBindingModule.class})
+public interface AppComponent {
 
-    @Override
-    void inject(DaggerApplication instance);
+    String provideTesto();
 
     // Gives us syntactic sugar. we can then do DaggerAppComponent.builder().application(this).build().inject(this);
     // never having to instantiate any modules or say which module we are passing the application to.

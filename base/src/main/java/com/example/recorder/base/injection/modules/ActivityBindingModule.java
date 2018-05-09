@@ -1,11 +1,8 @@
 package com.example.recorder.base.injection.modules;
 
-import com.example.recorder.base.injection.scopes.ActivityScoped;
-import com.example.recorder.base.presentation.SplashScreenActivity;
-import com.example.recorder.base.presentation.SplashScreenModule;
 
 import dagger.Module;
-import dagger.android.ContributesAndroidInjector;
+import dagger.Provides;
 
 /**
  * We want Dagger.Android to create a Subcomponent which has a parent Component of whichever module ActivityBindingModule is on,
@@ -16,8 +13,9 @@ import dagger.android.ContributesAndroidInjector;
  */
 
 @Module
-public abstract class ActivityBindingModule {
-    @ActivityScoped
-    @ContributesAndroidInjector(modules = SplashScreenModule.class)
-    abstract SplashScreenActivity splashScreenActivity();
+public class ActivityBindingModule {
+    @Provides
+    public static String provideTesto() {
+        return "testo";
+    }
 }
