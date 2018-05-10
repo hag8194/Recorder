@@ -3,7 +3,7 @@ package com.example.recorder.base.injection;
 import android.app.Application;
 
 import com.example.recorder.base.RecorderApplication;
-import com.example.recorder.base.injection.modules.ActivityBindingModule;
+import com.example.recorder.base.injection.modules.AppModule;
 
 import javax.inject.Singleton;
 
@@ -24,7 +24,7 @@ import dagger.android.support.AndroidSupportInjectionModule;
  */
 
 @Singleton
-@Component(modules = {ActivityBindingModule.class})
+@Component(modules = {AppModule.class})
 public interface AppComponent {
 
     String provideTesto();

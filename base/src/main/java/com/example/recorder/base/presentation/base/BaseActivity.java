@@ -4,15 +4,11 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 
-import dagger.android.support.DaggerAppCompatActivity;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-/**
- * Created by Hugo on 28/01/2018.
- */
-
-public abstract class DaggerActivity extends DaggerAppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable final Bundle savedInstanceState) {
         setContentView(getLayoutId());

@@ -4,7 +4,6 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.example.recorder.base.injection.AppComponent;
 import com.example.recorder.playrecord.presentation.PlayRecordActivity;
-import com.example.recorder.playrecord.presentation.PlayRecordModule;
 
 import dagger.BindsInstance;
 import dagger.Component;

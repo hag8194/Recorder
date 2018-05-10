@@ -1,4 +1,4 @@
-package com.example.recorder.playrecord.presentation;
+package com.example.recorder.playrecord.injection;
 
 import dagger.Module;
 
