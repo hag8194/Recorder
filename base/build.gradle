@@ -47,9 +47,6 @@ dependencies {
     implementation commonDependencies.constraintLayout
     implementation commonDependencies.supportDesign
 
-    // Calligraphy
-    implementation commonDependencies.calligraphy
-
     // Architecture components
     implementation commonDependencies.architectureComponentsExtensions
     annotationProcessor commonDependencies.architectureComponentsCompiler

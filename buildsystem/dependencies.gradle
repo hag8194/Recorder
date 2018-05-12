@@ -56,8 +56,6 @@ ext {
             supportRecyclerView             : "com.android.support:recyclerview-v7:${supportLibrary}",
             constraintLayout                : "com.android.support.constraint:constraint-layout:${constraintLayout}",
 
-            calligraphy                     : "uk.co.chrisjenx:calligraphy:${calligraphy}",
-
             roomRuntime                     : "android.arch.persistence.room:runtime:${room}",
             roomCompiler                    : "android.arch.persistence.room:compiler:${room}",
             roomTesting                     : "android.arch.persistence.room:testing:${room}",
