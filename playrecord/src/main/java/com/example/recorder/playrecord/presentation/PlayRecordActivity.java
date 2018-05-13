@@ -5,8 +5,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.widget.TextView;
 
-import com.example.recorder.base.RecorderApplication;
 import com.example.recorder.base.presentation.base.BaseActivity;
+import com.example.recorder.base.presentation.base.BaseComponent;
 import com.example.recorder.playrecord.R;
 import com.example.recorder.playrecord.injection.DaggerPlayRecordComponent;
 
@@ -22,10 +22,6 @@ public class PlayRecordActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        DaggerPlayRecordComponent.builder()
-                .appComponent(((RecorderApplication) getApplication()).getAppComponent())
-                .create(this).inject(this);
-
         TextView textView = findViewById(R.id.textView);
         textView.setText(testo == null ? "Nailo" : testo);
 
@@ -34,6 +30,11 @@ public class PlayRecordActivity extends BaseActivity {
     @Override
     protected int getLayoutId() {
         return R.layout.play_record_activity;
+    }
+
+    @Override
+    protected BaseComponent.Builder getComponent() {
+        return DaggerPlayRecordComponent.builder();
     }
 
 }

@@ -27,8 +27,8 @@ public class RecorderApplication extends Application {
             return;
         }
 
-        this.appComponent = (AppComponent) DaggerAppComponent.builder().create(this);
-        appComponent.inject(this);
+        this.appComponent = DaggerAppComponent.builder().application(this).build();
+
 
     }
 }

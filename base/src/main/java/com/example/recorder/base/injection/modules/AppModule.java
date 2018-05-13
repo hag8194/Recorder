@@ -1,11 +1,11 @@
 package com.example.recorder.base.injection.modules;
 
-
-import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
+import com.example.recorder.base.RecorderApplication;
+import com.example.recorder.base.injection.qualifiers.ForApplication;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 
@@ -20,7 +20,8 @@ public class AppModule {
     }
 
     @Provides
-    public Context provideApplicationContext(Application app) {
+    @ForApplication
+    public Context provideApplicationContext(RecorderApplication app) {
         return app.getApplicationContext();
     }
 
@@ -30,7 +31,7 @@ public class AppModule {
     }
 
     @Provides
-    public RefWatcher provideRefWatcher(Application app) {
+    public RefWatcher provideRefWatcher(RecorderApplication app) {
         return LeakCanary.install(app);
     }
 }

@@ -13,16 +13,9 @@ import dagger.Provides;
 @Module
 public final class ActivityModule {
 
-    @NonNull
-    private final AppCompatActivity activity;
-
-    public ActivityModule(@NonNull final AppCompatActivity activity) {
-        this.activity = activity;
-    }
-
     @ForActivity
     @Provides
-    Context provideContext() {
+    Context provideContext(AppCompatActivity activity) {
         return activity;
     }
 

@@ -9,11 +9,4 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/app_name" />
-
-    <fragment
-        android:id="@+id/play_record_fragment"
-        android:name="com.example.recorder.playrecord.presentation.PlayRecordFragment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
 </LinearLayout>
