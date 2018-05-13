@@ -6,11 +6,10 @@ import com.example.recorder.base.injection.modules.AppModule;
 import javax.inject.Singleton;
 
 import dagger.Component;
-import dagger.android.AndroidInjectionModule;
 import dagger.android.AndroidInjector;
 
 @Singleton
-@Component(modules = {AppModule.class, AndroidInjectionModule.class})
+@Component(modules = {AppModule.class})
 public interface AppComponent extends AndroidInjector<RecorderApplication> {
 
     String provideTesto();
