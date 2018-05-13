@@ -22,9 +22,9 @@ public class PlayRecordActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        DaggerPlayRecordComponent.builder().activity(this)
+        DaggerPlayRecordComponent.builder()
                 .appComponent(((RecorderApplication) getApplication()).getAppComponent())
-                .build().inject(this);
+                .create(this).inject(this);
 
         TextView textView = findViewById(R.id.textView);
         textView.setText(testo == null ? "Nailo" : testo);

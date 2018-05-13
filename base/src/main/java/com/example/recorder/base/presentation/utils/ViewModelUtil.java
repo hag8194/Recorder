@@ -19,7 +19,8 @@ public class ViewModelUtil {
         return new ViewModelProvider.Factory() {
 
             @Override
-            public <T extends ViewModel> T create(Class<T> modelClass) {
+            @NonNull
+            public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
                 if (modelClass.isAssignableFrom(viewModel.getClass())) {
                     return (T) viewModel;
                 }

@@ -5,6 +5,7 @@ import android.app.Application;
 
 import com.example.recorder.base.injection.AppComponent;
 import com.example.recorder.base.injection.DaggerAppComponent;
+import com.squareup.leakcanary.LeakCanary;
 
 
 /**
@@ -21,8 +22,13 @@ public class RecorderApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        this.appComponent = DaggerAppComponent.builder()
-                .application(this)
-                .build();
+
+        if (LeakCanary.isInAnalyzerProcess(this)) {
+            return;
+        }
+
+        this.appComponent = (AppComponent) DaggerAppComponent.builder().create(this);
+        appComponent.inject(this);
+
     }
 }

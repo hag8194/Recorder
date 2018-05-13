@@ -1,43 +1,22 @@
 package com.example.recorder.base.injection;
 
-import android.app.Application;
-
 import com.example.recorder.base.RecorderApplication;
 import com.example.recorder.base.injection.modules.AppModule;
 
 import javax.inject.Singleton;
 
-import dagger.BindsInstance;
 import dagger.Component;
-import dagger.android.support.AndroidSupportInjectionModule;
-
-/**
- * This is a Dagger component. Refer to {@link RecorderApplication} for the list of Dagger components
- * used in this application.
- * <p>
- * Even though Dagger allows annotating a {@link Component} as a singleton, the code
- * itself must ensure only one instance of the class is created. This is done in {@link
- * RecorderApplication}.
- * //{@link AndroidSupportInjectionModule}
- * // is the module from Dagger.Android that helps with the generation
- * // and location of subcomponents.
- */
+import dagger.android.AndroidInjectionModule;
+import dagger.android.AndroidInjector;
 
 @Singleton
-@Component(modules = {AppModule.class})
-public interface AppComponent {
+@Component(modules = {AppModule.class, AndroidInjectionModule.class})
+public interface AppComponent extends AndroidInjector<RecorderApplication> {
 
     String provideTesto();
 
-    // Gives us syntactic sugar. we can then do DaggerAppComponent.builder().application(this).build().inject(this);
-    // never having to instantiate any modules or say which module we are passing the application to.
-    // Application will just be provided into our app graph now.
     @Component.Builder
-    interface Builder {
+    abstract class Builder extends AndroidInjector.Builder<RecorderApplication> {
 
-        @BindsInstance
-        AppComponent.Builder application(Application application);
-
-        AppComponent build();
     }
 }
